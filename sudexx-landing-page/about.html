@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Sudexx Diesel Repair</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: #1a365d;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: white;
+            font-family: 'Orbitron', 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #63b3ed;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #f7fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-grid {
+            display: grid;
+            gap: 4rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid #1a365d;
+        }
+
+        .about-card h2 {
+            color: #1a365d;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .about-card p {
+            color: #666;
+            line-height: 1.8;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .about-card li {
+            padding: 0.75rem 0;
+            position: relative;
+            padding-left: 2rem;
+            color: #555;
+            font-weight: 400;
+        }
+
+        .about-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1a365d;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .highlight-box p {
+            color: white;
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #e53e3e;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            margin: 0 10px 10px 0;
+        }
+
+        .cta-button:hover {
+            background-color: #c53030;
+        }
+
+        .cta-button.secondary {
+            background-color: #1a365d;
+        }
+
+        .cta-button.secondary:hover {
+            background-color: #2d5a87;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0f2027;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer p {
+            font-weight: 400;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .about-card {
+                padding: 2rem;
+            }
+
+            .about-card h2 {
+                font-size: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .page-header {
+                padding: 100px 0 60px;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Sudexx Diesel Repair</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="free-check.html">Free Check</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About Sudexx Diesel Repair</h1>
+            <p>Your trusted partner for professional diesel engine repair and maintenance services in Dallas</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-card">
+                    <h2>Who is Sudexx Diesel Repair?</h2>
+                    <p>Sudexx Diesel Repair is a family-owned and operated diesel engine repair shop located in Dallas, Texas. We specialize in servicing 18-wheelers, box trucks, and commercial diesel vehicles with a commitment to quality, reliability, and customer satisfaction.</p>
+                    
+                    <p>Founded with a passion for diesel engines and a dedication to keeping commercial fleets on the road, our team of certified technicians brings decades of combined experience to every repair and maintenance job.</p>
+
+                    <div class="highlight-box">
+                        <h3>Our Mission</h3>
+                        <p>To provide exceptional diesel engine repair and maintenance services that keep your commercial vehicles running safely and efficiently, minimizing downtime and maximizing your business productivity.</p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">7+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Trucks Serviced</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Customer Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h2>What does Sudexx actually repair?</h2>
+                    <p>We provide comprehensive repair and maintenance services for all types of commercial diesel vehicles, focusing on the systems that keep your trucks running safely and efficiently.</p>
+
+                    <h3 style="color: #1a365d; margin: 2rem 0 1rem;">Our Core Services Include:</h3>
+                    <ul>
+                        <li><strong>Engine Systems:</strong> Complete engine diagnostics, repair, and rebuilding services</li>
+                        <li><strong>Oil & Maintenance:</strong> Oil changes, filter replacements, and preventive maintenance</li>
+                        <li><strong>Brake & Tire Services:</strong> Air brake systems, tire mounting, and wheel alignment</li>
+                        <li><strong>Computer Diagnostics:</strong> Advanced ECM diagnostics and performance optimization</li>
+                        <li><strong>Electrical Systems:</strong> Wiring, alternators, starters, and electronic components</li>
+                        <li><strong>Fuel Systems:</strong> Injection pumps, fuel lines, and fuel system maintenance</li>
+                        <li><strong>Transmission Services:</strong> Manual and automatic transmission repair</li>
+                        <li><strong>Fleet Services:</strong> Comprehensive maintenance programs for trucking companies</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h3>Specialized Equipment</h3>
+                        <p>We use state-of-the-art diagnostic equipment and tools specifically designed for commercial diesel engines, ensuring accurate diagnosis and quality repairs every time.</p>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h2>Why should I choose Sudexx Diesel Repair?</h2>
+                    <p>When it comes to your commercial diesel vehicles, you need a repair shop you can trust. Here's why Sudexx Diesel Repair is the right choice for your fleet:</p>
+
+                    <h3 style="color: #1a365d; margin: 2rem 0 1rem;">Key Advantages:</h3>
+                    <ul>
+                        <li><strong>Expert Technicians:</strong> Certified diesel mechanics with specialized training</li>
+                        <li><strong>Quality Parts:</strong> We use only high-quality OEM and premium aftermarket parts</li>
+                        <li><strong>Fast Turnaround:</strong> Quick service to minimize your downtime</li>
+                        <li><strong>Competitive Pricing:</strong> Fair, transparent pricing with no hidden fees</li>
+                        <li><strong>Fleet Programs:</strong> Customized maintenance schedules for commercial fleets</li>
+                        <li><strong>Local Business:</strong> Family-owned and operated, serving the Dallas community</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h3>Our Promise</h3>
+                        <p>We treat every vehicle as if it were our own, providing honest assessments, quality workmanship, and reliable service that keeps your business moving forward.</p>
+                    </div>
+
+                    <div class="cta-section">
+                        <a href="free-check.html" class="cta-button">Get Free Health Check</a>
+                        <a href="contact.html" class="cta-button secondary">Contact Us Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sudexx Diesel Repair. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html> 
